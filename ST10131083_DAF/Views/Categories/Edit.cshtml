@@ -1,8 +1,7 @@
 ﻿@model ST10131083_DAF.Models.Dashboard.Category
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout_Dashboard.cshtml";
+    ViewData["Title"] = "Edit";
 }
 
 <div class="container">
@@ -16,13 +15,14 @@
                     <div class="text-bg-success"><p class="sm-form-msg text-white m-0">@TempData["errorMessage"]</p></div>
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="CategoryId" />
                         <div class="form-group">
                             <label asp-for="CategoryName" class="control-label">Category Name</label>
                             <input asp-for="CategoryName" class="form-control" />
                             <span asp-validation-for="CategoryName" class="text-danger"></span>
                         </div>
                         <div class="sm-form-el">
-                            <input type="submit" class="btn btn-primary btn-lg col-6 d-grid col-12 btn-thm thm-colorbg-sc mt-4" id="u9_input" value="Create">
+                            <input type="submit" class="btn btn-primary btn-lg col-6 d-grid col-12 btn-thm thm-colorbg-sc mt-4" id="u9_input" value="Save">
                         </div>
                         <div>
                             <a asp-action="Index">Back to List</a>
@@ -33,5 +33,3 @@
         </div>
     </div>
 </div>
-
-

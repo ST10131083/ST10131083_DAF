@@ -15,10 +15,10 @@
                 <span class="m-3">
                     <a asp-action="Create" asp-controller="Categories" class="btn btn-primary btn-lg btn-thm thm-colorbg-pr ms-2">Create New</a>
                 </span>
+                <div class="text-bg-success"><p class="sm-form-msg text-white m-0">@TempData["errorMessage"]</p></div>
                 <table class="table table-bordered">
                     <thead>
                         <tr class="text-center">
-                            <th>Category ID</th>
                             <th>Category Name</th>
                             <th>Actions</th>
                         </tr>
@@ -27,14 +27,13 @@
                         @foreach (var item in Model)
                         {
                             <tr class="text-center">
-                                <td>@item.CategoryId</td>
                                 <td>@item.CategoryName</td>
-                                    
-                                    @*@Html.DisplayFor(modelItem => item.CategoryName)*@
-                             
+
+                                @*@Html.DisplayFor(modelItem => item.CategoryName)*@
+
                                 <td>
                                     <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
+                                    @*<a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |*@
                                     <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
                                 </td>
                             </tr>

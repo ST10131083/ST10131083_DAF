@@ -39,8 +39,9 @@ namespace ST10131083_DAF.Controllers.Dashboard
                 };
 
                 context.Categories.Add(data);
-                context.SaveChanges();              
-                return RedirectToAction("Index");
+                context.SaveChanges();
+                TempData["errorMessage"] = "Category Saved!";
+                return RedirectToAction("Index", "Categories");
             }
             else
             {
@@ -48,6 +49,39 @@ namespace ST10131083_DAF.Controllers.Dashboard
                 return View(model);
             }
            
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var item = context.Categories.SingleOrDefault(e => e.CategoryId == id);
+            context.Categories.Remove(item);
+            context.SaveChanges();
+            TempData["errorMessage"] = "Category Deleted!";
+            return RedirectToAction("Index", "Categories");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var item = context.Categories.SingleOrDefault(e => e.CategoryId == id);
+            var result = new Category()
+            {
+                CategoryName = item.CategoryName
+            };
+            return View(result);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Category model)
+        {
+            var data = new Category()
+            {
+                CategoryId = model.CategoryId,
+                CategoryName = model.CategoryName
+            };
+            context.Categories.Add(data);
+            context.SaveChanges();
+            TempData["errorMessage"] = "Category Edited!";
+            return RedirectToAction("Index", "Categories");
         }
     }
 }
