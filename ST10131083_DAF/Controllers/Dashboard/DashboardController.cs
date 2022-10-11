@@ -43,7 +43,10 @@ namespace ST10131083_DAF.Controllers.Dashboard
                     Lname = model.Lname,
                     Mobile = model.Mobile,
                     Date = model.Date,
-                    isPrivate = model.isPrivate
+                    isPrivate = model.isPrivate,
+                    Userid = model.Userid
+
+
                 };
 
                 context.Donations.Add(data);              
