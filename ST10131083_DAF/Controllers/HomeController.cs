@@ -1,15 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ST10131083_DAF.Models;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ST10131083_DAF.Controllers
 {
-    
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

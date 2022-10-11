@@ -10,7 +10,7 @@ using ST10131083_DAF.Data;
 namespace ST10131083_DAF.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221011105331_first")]
+    [Migration("20221011140015_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

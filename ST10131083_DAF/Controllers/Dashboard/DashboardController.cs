@@ -2,10 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ST10131083_DAF.Data;
 using ST10131083_DAF.Models.Dashboard;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ST10131083_DAF.Controllers.Dashboard
 {
@@ -28,7 +24,7 @@ namespace ST10131083_DAF.Controllers.Dashboard
         public IActionResult Donate()
         {
             return View();
-        } 
+        }
 
         [HttpPost]
         public IActionResult Donate(Donation model)
@@ -49,7 +45,7 @@ namespace ST10131083_DAF.Controllers.Dashboard
 
                 };
 
-                context.Donations.Add(data);              
+                context.Donations.Add(data);
                 context.SaveChanges();
                 TempData["successMessage"] = "Donation Successful! Thank you for your donation! You are a STAR..";
                 return RedirectToAction("Donate");

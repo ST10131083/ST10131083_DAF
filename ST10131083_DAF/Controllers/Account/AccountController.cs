@@ -5,11 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using ST10131083_DAF.Data;
 using ST10131083_DAF.Models.Account;
 using ST10131083_DAF.Models.ViewModel;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace ST10131083_DAF.Controllers.Account
 {
@@ -100,7 +97,7 @@ namespace ST10131083_DAF.Controllers.Account
                 TempData["errorMessage"] = "Empty form can't be submited!";
                 return View(model);
             }
-            
+
         }
     }
 }

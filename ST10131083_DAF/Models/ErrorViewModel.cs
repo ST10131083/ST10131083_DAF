@@ -1,5 +1,3 @@
-using System;
-
 namespace ST10131083_DAF.Models
 {
     public class ErrorViewModel

@@ -1,10 +1,6 @@
 ﻿using ST10131083_DAF.Models.Account;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ST10131083_DAF.Models.Dashboard
 {
@@ -12,7 +8,7 @@ namespace ST10131083_DAF.Models.Dashboard
     {
         [Key]
         public int Donationid { get; set; }
-       // [Required(ErrorMessage = "Please enter amount")]
+        // [Required(ErrorMessage = "Please enter amount")]
 
         public double Amount { get; set; }
         //[Required(ErrorMessage = "Please enter email address")]
