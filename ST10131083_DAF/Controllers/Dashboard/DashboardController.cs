@@ -28,7 +28,7 @@ namespace ST10131083_DAF.Controllers.Dashboard
         public IActionResult Donate()
         {
             return View();
-        }
+        } 
 
         [HttpPost]
         public IActionResult Donate(Donation model)
