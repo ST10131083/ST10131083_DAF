@@ -2,19 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ST10131083_DAF.Models.Dashboard
 {
-    public class Donation
+    public class Good
     {
         [Key]
-        public int Donationid { get; set; }
+        public int Goodsid { get; set; }
         [Required(ErrorMessage = "Please enter amount")]
-
-        public double Amount { get; set; }
+        public string CategoryName { get; set; }
+        public int NumberofGoods { get; set; }
         [Required(ErrorMessage = "Please enter email address")]
         public string DisasterName { get; set; }
         [DataType(DataType.EmailAddress)]
@@ -34,6 +33,5 @@ namespace ST10131083_DAF.Models.Dashboard
         //[ForeignKey("Userid")]
         public virtual Disaster Disaster { get; set; }
         public virtual User User { get; set; }
-
     }
 }
