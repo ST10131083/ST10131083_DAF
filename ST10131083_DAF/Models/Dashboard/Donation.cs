@@ -26,9 +26,9 @@ namespace ST10131083_DAF.Models.Dashboard
         [Required(ErrorMessage = "Please enter mobile date")]
         public DateTime Date { get; set; }
         public bool isPrivate { get; set; }
-        public int Userid { get; set; }
+        /*public int Userid { get; set; }
         [ForeignKey("Userid")]
-        public virtual User User { get; set; }
+        public virtual User User { get; set; }*/
 
     }
 }

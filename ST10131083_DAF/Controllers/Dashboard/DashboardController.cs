@@ -24,7 +24,7 @@ namespace ST10131083_DAF.Controllers.Dashboard
             return View();
         }
 
-        [HttpGet]
+        //[HttpGet]
         public IActionResult Donate()
         {
             return View();
@@ -46,7 +46,7 @@ namespace ST10131083_DAF.Controllers.Dashboard
                     isPrivate = model.isPrivate
                 };
 
-                //context.Donations.Add(data);
+                context.Donations.Add(data);              
                 context.SaveChanges();
                 TempData["successMessage"] = "Donation Successful! Thank you for your donation! You are a STAR..";
                 return RedirectToAction("Donate");
