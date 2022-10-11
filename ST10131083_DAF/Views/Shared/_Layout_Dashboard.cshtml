@@ -39,15 +39,15 @@
                         <li class="nav-item">
                             <a asp-action="Donate" asp-controller="Dashboard" class="nav-link ms-4 thm-colorfg-pr">Donate</a>
                         </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Categories" class="nav-link ms-4 thm-colorfg-pr">Categories</a>
+                        </li>
                         @*<li class="nav-item">
-                            <a class="nav-link ms-4 thm-colorfg-pr" href="#">Wallets</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link ms-4 thm-colorfg-pr" href="#">Rewards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link ms-4 thm-colorfg-pr" href="#">Profile</a>
-                        </li>*@
+            <a class="nav-link ms-4 thm-colorfg-pr" href="#">Rewards</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link ms-4 thm-colorfg-pr" href="#">Profile</a>
+        </li>*@
                     </ul>
                     <span class="navbar-text d-grid gap-2 d-md-block">
                         @if (User.Identity.IsAuthenticated)
