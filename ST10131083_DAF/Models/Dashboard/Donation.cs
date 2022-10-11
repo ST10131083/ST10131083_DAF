@@ -12,20 +12,20 @@ namespace ST10131083_DAF.Models.Dashboard
     {
         [Key]
         public int Donationid { get; set; }
-        [Required(ErrorMessage = "Please enter amount")]
+       // [Required(ErrorMessage = "Please enter amount")]
 
         public double Amount { get; set; }
-        [Required(ErrorMessage = "Please enter email address")]
+        //[Required(ErrorMessage = "Please enter email address")]
         public string DisasterName { get; set; }
-        [DataType(DataType.EmailAddress)]
+        //[DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Please enter name")]
+        //[Required(ErrorMessage = "Please enter name")]
         public string Fname { get; set; }
-        [Required(ErrorMessage = "Please enter surname")]
+        //[Required(ErrorMessage = "Please enter surname")]
         public string Lname { get; set; }
-        [Required(ErrorMessage = "Please enter mobile number")]
+        //[Required(ErrorMessage = "Please enter mobile number")]
         public long Mobile { get; set; }
-        [Required(ErrorMessage = "Please enter mobile date")]
+        //[Required(ErrorMessage = "Please enter mobile date")]
         public DateTime Date { get; set; }
         public bool isPrivate { get; set; }
         public int DisasterId { get; set; }
