@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <title>@ViewData["Title"] - ST10131083_DAF</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" sizes="16x16" href="images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" sizes="32x32" href="images/favicons/favicon-32x32.png">
+    <link rel="shortcut icon" sizes="128x128" href="images/favicons/favicon-128x128.png">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <script type="text/javascript">
+        const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '#nav-scroll'
+        })
+    </script>
+
+</head>
+<body data-bs-spy="scroll" data-bs-target="#nav-scroll">
+    <div id="" class="base">
+        <nav id="nav-scroll" class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+            <div class="container-fluid">
+                <div id="" class="logo me-4" data-label="logo bg">
+                    <p>DAP</p>
+                    <!-- <a class="navbar-brand" href="#">LOGO</a> -->
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse thm-colorfg-pr" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase fw-bold">
+                        <li class="nav-item">
+                            <a class="nav-link active ms-4 thm-colorfg-pr" aria-current="page" href="#scrollspyHeading1">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ms-4 thm-colorfg-pr" href="#scrollspyHeading2">How can you help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ms-4 thm-colorfg-pr" href="#scrollspyHeading3">What we do</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ms-4 thm-colorfg-pr" href="#scrollspyHeading4">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ms-4 thm-colorfg-pr" href="#scrollspyHeading5">Get in touch</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text d-grid gap-2 d-md-block">
+                        <a class="btn btn-primary btn-lg btn-thm thm-colorbg-sc" href="#">Donate</a>
+                        <a class="btn btn-primary btn-lg btn-thm thm-colorbg-pr ms-2" asp-action="SignUp" asp-controller="Account">Sign Up</a>
+
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        @RenderBody()
+
+        <div class="content-bg footer text-center">
+            <p class="m-0">&copy Copyright 2022 | DAF</p>
+        </div>
+    </div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+</body>
+</html>

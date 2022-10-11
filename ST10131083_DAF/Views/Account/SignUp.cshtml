@@ -1,0 +1,44 @@
+﻿@model ST10131083_DAF.Models.ViewModel.SignUpUserViewModel
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+}
+
+<!-- Begin Registration Form Modal -->
+<div class="container" id="regForm">
+    <div class="row">
+        <div class="sm-form-bg">
+            <form asp-action="SignUp" method="post">
+                <div asp-validation-summary="ModelOnly" class=""></div>
+                <div class="sm-form col-6 col-sm-3">
+                    <div class="text-bg-danger"><p class="sm-form-msg text-white m-0">@TempData["errorMessage"]</p></div>
+                    <img class="icon-form" src="~/images/home/icon-form.svg">
+                    <p class="sm-form-text-1">CREATE ACCOUNT</p>
+                    <p class="sm-form-text-2">Already have an account? <a asp-action="Login" asp-controller="Account">SIGN IN</a></p>
+
+                    <div class="sm-form-el pb-3">
+                        <input type="email" asp-for="Email" id="u9_input" class="sm-form-input" placeholder="Enter Email addresss" />
+                        <span asp-validation-for="Email" class="sm-form-msg"></span>
+                    </div>
+                    <div class="sm-form-el pb-3">
+                        <input type="password" asp-for="Password" id="u9_input" class="sm-form-input" placeholder="Enter Password" />
+                        <span asp-validation-for="Password" class="sm-form-msg"></span>
+                    </div>
+                    <div class="sm-form-el pb-3 text-start">
+                        <label asp-for="isActive" class=""></label>
+                        <input type="checkbox" asp-for="isActive" checked="checked" />
+                    </div>
+                    <div class="sm-form-el">
+                        <input type="submit" class="btn btn-primary btn-lg col-6 d-grid col-12 btn-thm thm-colorbg-pr mt-4" id="u9_input" value="submit" />
+                    </div>
+                    <span class="sm-form-msg text-success">@ViewBag.message</span>
+                    <div class="sm-form-el">
+                        <p class="sm-form-text-2 mt-4"><a href="#">HAVING TROUBLE?</a></p>
+                    </div>
+                </div>              
+            </form>
+        </div>
+    </div>
+</div>
+
+

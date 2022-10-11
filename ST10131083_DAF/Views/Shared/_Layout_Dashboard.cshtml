@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <title>@ViewData["Title"] - ST10131083_DAF</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" sizes="16x16" href="images/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" sizes="32x32" href="images/favicons/favicon-32x32.png">
+    <link rel="shortcut icon" sizes="128x128" href="images/favicons/favicon-128x128.png">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+<body>
+    <div id="" class="base">     
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+            <div class="container-fluid">
+                <div id="" class="logo me-4" data-label="logo bg">
+                    <p>LOGO</p>
+                    <!-- <a class="navbar-brand" href="#">LOGO</a> -->
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse thm-colorfg-pr" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase fw-bold">
+                        <li class="nav-item">
+                            <a asp-action="" asp-controller="Dashboard" class="nav-link active ms-4 thm-colorfg-pr" aria-current="page">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Donate" asp-controller="Dashboard" class="nav-link ms-4 thm-colorfg-pr">Donate</a>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link ms-4 thm-colorfg-pr" href="#">Wallets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ms-4 thm-colorfg-pr" href="#">Rewards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ms-4 thm-colorfg-pr" href="#">Profile</a>
+                        </li>*@
+                    </ul>
+                    <span class="navbar-text d-grid gap-2 d-md-block">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                        <span>Welcome to </span><span>@User.Identity.Name</span>
+                        <a class="btn btn-primary btn-lg btn-thm thm-colorbg-sc" asp-action="LogOut" asp-controller="Account">Sign Out</a>
+                        }
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        @*<nav class="navbar bg-light fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Offcanvas navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>*@
+
+    <div class="container">
+        @RenderBody()
+    </div>
+        
+
+        <div class="content-bg footer text-center">
+            <p class="m-0">&copy Copyright 2022 | DAF</p>
+        </div>
+    </div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+</body>
+</html>

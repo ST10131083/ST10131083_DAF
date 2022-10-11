@@ -1,0 +1,58 @@
+﻿@model ST10131083_DAF.Models.Dashboard.Donation
+@{
+    ViewData["Title"] = "Donate";
+    Layout = "~/Views/Shared/_Layout_Dashboard.cshtml";
+}
+
+<div class="container" id="donateForm">
+    <div class="row">
+        <div class="sm-form-bg">
+            <form asp-action="Donate" method="post">
+                <div class="sm-form col-6 col-sm-3">
+                    <div class="text-bg-success"><p class="sm-form-msg text-white m-0">@TempData["successMessage"]</p></div>
+                    <h4 class="sm-form-text-1 text-uppercase">How much<br /> would you like to donate?</h4>
+
+                    <div class="sm-form-el pb-4 mt-5 mb-4 border-bottom">
+                        <input type="text" asp-for="Amount" id="u9_input" class="sm-form-input" placeholder="Amount e.g. R500.00">
+                        <span class="sm-form-msg text-danger">@TempData["errorAmount"]</span>
+                    </div>
+
+                    <div class="sm-form-el pb-3">
+                        <input type="email" asp-for="Email" id="u9_input" class="sm-form-input" placeholder="Enter Email Address">
+                        <span class="sm-form-msg text-danger">@TempData["errorEmail"]</span>
+                    </div>
+
+                    <div class="row">
+                        <div class="sm-form-el pb-3 col-6">
+                            <input type="text" asp-for="Fname" id="u9_input" class="sm-form-input" placeholder="Enter Name">
+                            <span class="sm-form-msg text-danger">@TempData["errorFname"]</span>
+                        </div>
+                        <div class="sm-form-el pb-3 col-6">
+                            <input type="text" asp-for="Lname" id="u9_input" class="sm-form-input" placeholder="Enter Surname">
+                            <span class="sm-form-msg text-danger">@TempData["errorLname"]</span>
+                        </div>
+                    </div>
+
+                    <div class="sm-form-el pb-3">
+                        <input type="text" asp-for="Mobile" id="u9_input" class="sm-form-input" placeholder="Enter Mobile Number">
+                        <span class="sm-form-msg text-danger">@TempData["errorMobile"]</span>
+                    </div>
+
+                    <div class="sm-form-el pb-3 input-group date" id="datepicker">
+                        <input type="date" asp-for="Date" id="u9_input" class="sm-form-input" />                       
+                        <span class="sm-form-msg text-danger">@TempData["errorDate"]</span>
+                    </div>
+
+                    <div class="sm-form-el text-start pt-4 pb-4 mt-2 mb-4 border-top border-bottom ">
+                        <input type="checkbox" asp-for="isPrivate" id="u9_input" class="me-1" />
+                        <label asp-for="isPrivate" class=""></label>
+                    </div>
+                    <div class="sm-form-el">
+                        <input type="submit" class="btn btn-primary btn-lg col-6 d-grid col-12 btn-thm thm-colorbg-sc mt-4" id="u9_input" value="Donate">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
