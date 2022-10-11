@@ -10,8 +10,8 @@ using ST10131083_DAF.Data;
 namespace ST10131083_DAF.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221011070543_disasterallocation")]
-    partial class disasterallocation
+    [Migration("20221011105331_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -232,7 +232,7 @@ namespace ST10131083_DAF.Migrations
 
                     b.HasIndex("Userid");
 
-                    b.ToTable("Good");
+                    b.ToTable("Goods");
                 });
 
             modelBuilder.Entity("ST10131083_DAF.Models.Dashboard.Disaster", b =>

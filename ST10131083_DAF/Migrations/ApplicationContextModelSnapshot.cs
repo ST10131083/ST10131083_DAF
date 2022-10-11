@@ -230,7 +230,7 @@ namespace ST10131083_DAF.Migrations
 
                     b.HasIndex("Userid");
 
-                    b.ToTable("Good");
+                    b.ToTable("Goods");
                 });
 
             modelBuilder.Entity("ST10131083_DAF.Models.Dashboard.Disaster", b =>

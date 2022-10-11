@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ST10131083_DAF.Migrations
 {
-    public partial class user : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -98,7 +98,7 @@ namespace ST10131083_DAF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Good",
+                name: "Goods",
                 columns: table => new
                 {
                     Goodsid = table.Column<int>(type: "int", nullable: false)
@@ -118,21 +118,21 @@ namespace ST10131083_DAF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Good", x => x.Goodsid);
+                    table.PrimaryKey("PK_Goods", x => x.Goodsid);
                     table.ForeignKey(
-                        name: "FK_Good_Categories_CategoryId",
+                        name: "FK_Goods_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Good_Disasters_DisasterId",
+                        name: "FK_Goods_Disasters_DisasterId",
                         column: x => x.DisasterId,
                         principalTable: "Disasters",
                         principalColumn: "DisasterId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Good_Users_Userid",
+                        name: "FK_Goods_Users_Userid",
                         column: x => x.Userid,
                         principalTable: "Users",
                         principalColumn: "UserId",
@@ -195,18 +195,18 @@ namespace ST10131083_DAF.Migrations
                 column: "Userid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Good_CategoryId",
-                table: "Good",
+                name: "IX_Goods_CategoryId",
+                table: "Goods",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Good_DisasterId",
-                table: "Good",
+                name: "IX_Goods_DisasterId",
+                table: "Goods",
                 column: "DisasterId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Good_Userid",
-                table: "Good",
+                name: "IX_Goods_Userid",
+                table: "Goods",
                 column: "Userid");
         }
 
@@ -216,7 +216,7 @@ namespace ST10131083_DAF.Migrations
                 name: "DisasterAllocations");
 
             migrationBuilder.DropTable(
-                name: "Good");
+                name: "Goods");
 
             migrationBuilder.DropTable(
                 name: "Donations");
