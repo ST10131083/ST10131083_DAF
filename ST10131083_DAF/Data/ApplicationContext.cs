@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ST10131083_DAF.Models.Account;
 using ST10131083_DAF.Models.Dashboard;
+
 
 namespace ST10131083_DAF.Data
 {
@@ -15,5 +18,21 @@ namespace ST10131083_DAF.Data
 
         public DbSet<Disaster> Disasters { get; set; }
         public DbSet<DisasterAllocation> DisasterAllocations { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.RemovePluralizingTableNameConvention();
+        }
+    }
+
+    public static class ModelBuilderExtensions
+    {
+        public static void RemovePluralizingTableNameConvention(this ModelBuilder modelBuilder)
+        {
+            foreach (IMutableEntityType entity in modelBuilder.Model.GetEntityTypes())
+            {
+                entity.SetTableName(entity.DisplayName());
+            }
+        }
     }
 }

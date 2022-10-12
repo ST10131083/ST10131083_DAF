@@ -10,7 +10,7 @@ using ST10131083_DAF.Data;
 namespace ST10131083_DAF.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221011140015_first")]
+    [Migration("20221011224042_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,7 +45,7 @@ namespace ST10131083_DAF.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("ST10131083_DAF.Models.Dashboard.Category", b =>
@@ -60,7 +60,7 @@ namespace ST10131083_DAF.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("ST10131083_DAF.Models.Dashboard.Disaster", b =>
@@ -98,7 +98,7 @@ namespace ST10131083_DAF.Migrations
 
                     b.HasIndex("Categoryid");
 
-                    b.ToTable("Disasters");
+                    b.ToTable("Disaster");
                 });
 
             modelBuilder.Entity("ST10131083_DAF.Models.Dashboard.DisasterAllocation", b =>
@@ -132,7 +132,7 @@ namespace ST10131083_DAF.Migrations
 
                     b.HasIndex("Donationid");
 
-                    b.ToTable("DisasterAllocations");
+                    b.ToTable("DisasterAllocation");
                 });
 
             modelBuilder.Entity("ST10131083_DAF.Models.Dashboard.Donation", b =>
@@ -178,7 +178,7 @@ namespace ST10131083_DAF.Migrations
 
                     b.HasIndex("Userid");
 
-                    b.ToTable("Donations");
+                    b.ToTable("Donation");
                 });
 
             modelBuilder.Entity("ST10131083_DAF.Models.Dashboard.Good", b =>
@@ -232,7 +232,7 @@ namespace ST10131083_DAF.Migrations
 
                     b.HasIndex("Userid");
 
-                    b.ToTable("Goods");
+                    b.ToTable("Good");
                 });
 
             modelBuilder.Entity("ST10131083_DAF.Models.Dashboard.Disaster", b =>

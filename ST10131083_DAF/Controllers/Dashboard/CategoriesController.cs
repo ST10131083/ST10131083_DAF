@@ -59,7 +59,7 @@ namespace ST10131083_DAF.Controllers.Dashboard
             TempData["errorMessage"] = "Category Deleted!";
             return RedirectToAction("Index", "Categories");
         }
-
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             var item = context.Categories.SingleOrDefault(e => e.CategoryId == id);

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ST10131083_DAF.Data;
+using ST10131083_DAF.Models.Dashboard;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +20,37 @@ namespace ST10131083_DAF.Controllers.Dashboard
 
         public IActionResult Index()
         {
-            var result = context.Disasters.ToList();
+            var disasters = context.Disasters.Include(d => d.Category);
+            return View(disasters.ToList()); 
+        }
+        [HttpGet]
+        public IActionResult Create()
+        {
             return View();
         }
-        
-        public IActionResult Create()
-        {            
-            return View();
+
+        public IActionResult Create(Disaster model)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = new Disaster()
+                {
+                    DisasterName = model.DisasterName,
+                    DisasterType = model.DisasterType,
+                    Location = model.Location,
+
+                };
+
+                context.Categories.Add(data);
+                context.SaveChanges();
+                TempData["errorMessage"] = "Category Saved!";
+                return RedirectToAction("Index", "Categories");
+            }
+            else
+            {
+                TempData["errorMessage"] = "Empty field can't be submited!";
+                return View(model);
+            }
         }
     }
 }

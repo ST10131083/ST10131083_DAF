@@ -8,7 +8,7 @@ namespace ST10131083_DAF.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Category",
                 columns: table => new
                 {
                     CategoryId = table.Column<int>(type: "int", nullable: false)
@@ -17,11 +17,11 @@ namespace ST10131083_DAF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
+                    table.PrimaryKey("PK_Category", x => x.CategoryId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "int", nullable: false)
@@ -34,11 +34,11 @@ namespace ST10131083_DAF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_User", x => x.UserId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Disasters",
+                name: "Disaster",
                 columns: table => new
                 {
                     DisasterId = table.Column<int>(type: "int", nullable: false)
@@ -54,17 +54,17 @@ namespace ST10131083_DAF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Disasters", x => x.DisasterId);
+                    table.PrimaryKey("PK_Disaster", x => x.DisasterId);
                     table.ForeignKey(
-                        name: "FK_Disasters_Categories_Categoryid",
+                        name: "FK_Disaster_Category_Categoryid",
                         column: x => x.Categoryid,
-                        principalTable: "Categories",
+                        principalTable: "Category",
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Donations",
+                name: "Donation",
                 columns: table => new
                 {
                     Donationid = table.Column<int>(type: "int", nullable: false)
@@ -82,23 +82,23 @@ namespace ST10131083_DAF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Donations", x => x.Donationid);
+                    table.PrimaryKey("PK_Donation", x => x.Donationid);
                     table.ForeignKey(
-                        name: "FK_Donations_Disasters_DisasterId",
+                        name: "FK_Donation_Disaster_DisasterId",
                         column: x => x.DisasterId,
-                        principalTable: "Disasters",
+                        principalTable: "Disaster",
                         principalColumn: "DisasterId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Donations_Users_Userid",
+                        name: "FK_Donation_User_Userid",
                         column: x => x.Userid,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Goods",
+                name: "Good",
                 columns: table => new
                 {
                     Goodsid = table.Column<int>(type: "int", nullable: false)
@@ -118,29 +118,29 @@ namespace ST10131083_DAF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Goods", x => x.Goodsid);
+                    table.PrimaryKey("PK_Good", x => x.Goodsid);
                     table.ForeignKey(
-                        name: "FK_Goods_Categories_CategoryId",
+                        name: "FK_Good_Category_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Categories",
+                        principalTable: "Category",
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Goods_Disasters_DisasterId",
+                        name: "FK_Good_Disaster_DisasterId",
                         column: x => x.DisasterId,
-                        principalTable: "Disasters",
+                        principalTable: "Disaster",
                         principalColumn: "DisasterId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Goods_Users_Userid",
+                        name: "FK_Good_User_Userid",
                         column: x => x.Userid,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "DisasterAllocations",
+                name: "DisasterAllocation",
                 columns: table => new
                 {
                     DisasterAllocationId = table.Column<int>(type: "int", nullable: false)
@@ -154,81 +154,81 @@ namespace ST10131083_DAF.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DisasterAllocations", x => x.DisasterAllocationId);
+                    table.PrimaryKey("PK_DisasterAllocation", x => x.DisasterAllocationId);
                     table.ForeignKey(
-                        name: "FK_DisasterAllocations_Disasters_DisasterId",
+                        name: "FK_DisasterAllocation_Disaster_DisasterId",
                         column: x => x.DisasterId,
-                        principalTable: "Disasters",
+                        principalTable: "Disaster",
                         principalColumn: "DisasterId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_DisasterAllocations_Donations_Donationid",
+                        name: "FK_DisasterAllocation_Donation_Donationid",
                         column: x => x.Donationid,
-                        principalTable: "Donations",
+                        principalTable: "Donation",
                         principalColumn: "Donationid",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_DisasterAllocations_DisasterId",
-                table: "DisasterAllocations",
-                column: "DisasterId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DisasterAllocations_Donationid",
-                table: "DisasterAllocations",
-                column: "Donationid");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Disasters_Categoryid",
-                table: "Disasters",
+                name: "IX_Disaster_Categoryid",
+                table: "Disaster",
                 column: "Categoryid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Donations_DisasterId",
-                table: "Donations",
+                name: "IX_DisasterAllocation_DisasterId",
+                table: "DisasterAllocation",
                 column: "DisasterId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Donations_Userid",
-                table: "Donations",
+                name: "IX_DisasterAllocation_Donationid",
+                table: "DisasterAllocation",
+                column: "Donationid");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Donation_DisasterId",
+                table: "Donation",
+                column: "DisasterId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Donation_Userid",
+                table: "Donation",
                 column: "Userid");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Goods_CategoryId",
-                table: "Goods",
+                name: "IX_Good_CategoryId",
+                table: "Good",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Goods_DisasterId",
-                table: "Goods",
+                name: "IX_Good_DisasterId",
+                table: "Good",
                 column: "DisasterId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Goods_Userid",
-                table: "Goods",
+                name: "IX_Good_Userid",
+                table: "Good",
                 column: "Userid");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "DisasterAllocations");
+                name: "DisasterAllocation");
 
             migrationBuilder.DropTable(
-                name: "Goods");
+                name: "Good");
 
             migrationBuilder.DropTable(
-                name: "Donations");
+                name: "Donation");
 
             migrationBuilder.DropTable(
-                name: "Disasters");
+                name: "Disaster");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "User");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Category");
         }
     }
 }
