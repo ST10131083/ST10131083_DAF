@@ -35,7 +35,7 @@
                 @Html.DisplayNameFor(model => model.AmountAllocation)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                Resource Allocation
             </th>
             <th></th>
         </tr>
@@ -65,7 +65,10 @@
                 @Html.DisplayFor(modelItem => item.AmountAllocation)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryId)
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+               
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.DisasterId">Edit</a> |

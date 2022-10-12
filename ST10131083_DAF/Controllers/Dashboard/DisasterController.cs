@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ST10131083_DAF.Data;
 using ST10131083_DAF.Models.Dashboard;
@@ -23,12 +24,14 @@ namespace ST10131083_DAF.Controllers.Dashboard
             var disasters = context.Disasters.Include(d => d.Category);
             return View(disasters.ToList()); 
         }
-        [HttpGet]
+        //[HttpGet]
         public IActionResult Create()
         {
+            //var items = context.Categories.ToList();
+            ViewBag.CategoryId = new SelectList(context.Categories, "CategoryId", "CategoryName");
             return View();
         }
-
+        [HttpPost]
         public IActionResult Create(Disaster model)
         {
             if (ModelState.IsValid)
@@ -38,19 +41,25 @@ namespace ST10131083_DAF.Controllers.Dashboard
                     DisasterName = model.DisasterName,
                     DisasterType = model.DisasterType,
                     Location = model.Location,
-
+                    Description = model.Description,
+                    StartDate = model.StartDate,
+                    EndDate = model.EndDate,
+                    AmountAllocation = model.AmountAllocation,
+                    Categoryid = model.Categoryid                    
                 };
 
-                context.Categories.Add(data);
+                context.Disasters.Add(data);
                 context.SaveChanges();
-                TempData["errorMessage"] = "Category Saved!";
-                return RedirectToAction("Index", "Categories");
+                TempData["errorMessage"] = "Disaster Captured Saved!";
+                return RedirectToAction("Index", "Disaster");
             }
             else
             {
                 TempData["errorMessage"] = "Empty field can't be submited!";
-                return View(model);
+                
             }
+            ViewBag.CategoryId = new SelectList(context.Categories, "CategoryId", "CategoryName", model.Categoryid);
+            return View(model);
         }
     }
 }
